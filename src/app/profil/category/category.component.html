@@ -1,0 +1,97 @@
+<div class="row" style="margin-left: 5%;" >
+    <div class="col-md-10">
+      <div class="card" >
+        <div class="card-header" ><strong>Formulaire </strong>  Category </div>
+        <div class="card-body">
+          <form class="form-horizontal" [formGroup]="formulaire">
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="code"><strong>Id:</strong> </label>
+              <div class="col-md-9">
+                <input 
+                  type="text"
+                  id="id"
+                  name = "id"
+                  class="form-control" 
+                  placeholder="id" 
+                  formControlName="id" 
+                   
+                />
+               
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="name"><strong>Name:</strong> </label>
+              <div class="col-md-9">
+                <input 
+                  type="text"
+                  id="name"
+                  name = "name"
+                  class="form-control" 
+                  placeholder="libelle" 
+                  formControlName="name" 
+                style="margin-top: 5%;"
+                [class.is-invalid]="formulaire.controls.name.invalid && (formulaire.controls.name.dirty || formulaire.controls.name.touched)"
+                />
+                <small class="text-danger" *ngIf="formulaire.controls.id.invalid && (formulaire.controls.id.dirty || formulaire.controls.id.touched)">
+                  <div *ngIf="formulaire.controls.id.errors">champ requis</div>
+                </small>
+              </div>
+            </div>
+            <div class="card-footer" style="margin-top: 2%;">
+              <button
+                type="submit"
+                class="btn btn-sm btn-primary"
+          
+                (click)="add()"
+                [disabled]="formulaire.invalid"
+              >
+                <i class="fa fa-dot-circle-o"></i> Confirmer
+              </button>
+              <button
+                type="reset"
+                class="btn btn-sm btn-danger"
+                (click)="resetForm()"
+            style="margin-left: 5%;" >
+                <i class="fa fa-ban"></i> Ignorer
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="row" *ngIf="looding ==true">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <div class="lds-facebook"><div></div><div></div><div></div>
+        <span class="sr-only">Loading...</span>
+      </div>  </div>
+    <div class="col-4"></div>
+</div>
+<div class="animated fadeIn" *ngIf="source" style="margin-top: 5%;width: 80%; margin-left: 5%;">
+    <div class="row">
+        <div class="card-header col">
+            <i class="fa fa-users"></i><span>Category list</span>
+            <div class="form-outline" style="width: 50%; margin-left:  30%;">
+                <input #search type="search" id="form1" class="form-control" placeholder="Search by name or Id "
+                aria-label="Search" (input)="onSearch(search.value)" />
+              </div>
+           
+           
+        </div>
+    </div>
+    <div class="row card">
+       
+        <div class="card-body table-responsive ">
+            <ng2-smart-table 
+             [settings]='settings' 
+             [source]='source'
+             (deleteConfirm)='delete($event)'
+             (editConfirm)='update($event)'
+            >
+
+            </ng2-smart-table>
+        </div>
+    </div>
+    
+  </div>

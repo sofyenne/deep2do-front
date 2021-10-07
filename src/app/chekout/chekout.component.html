@@ -1,0 +1,70 @@
+<div class="row">
+    <div class="col-75">
+      <div class="container">
+        <form [formGroup]="checkoutForm">
+  
+          <div class="row">
+            <div class="col-50">
+              <h3>Billing Address</h3>
+              <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+              <input type="text" id="fname" name="name" placeholder="John M. Doe" formControlName="name">
+              <label for="email"><i class="fa fa-envelope"></i> Email</label>
+              <input type="text" id="email" name="email" placeholder="john@example.com" formControlName="email">
+              <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+            
+              <select name="" id="" class="form-control" style="margin-bottom: 2%;" formControlName="delivery">
+                <option [ngValue]=0 >choise a adress for delivery</option>
+                <option *ngFor="let item of adresslist" [ngValue]="item.id">{{item.place}}</option>
+              </select>
+           
+              <label for="expmonth">date</label>
+              <input type="date" id="expmonth" name="date" placeholder="September" formControlName="date">
+  
+
+           
+            </div>
+  
+            <div class="col-50">
+              <h3>Payment</h3>
+              <label for="fname">Accepted Cards</label>
+              <div class="icon-container">
+                <i class="ba ba-cc-visa" style="color:navy;"></i>
+                <i class="fa fa-cc-amex" style="color:blue;"></i>
+                <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                <i class="fa fa-cc-discover" style="color:orange;"></i>
+              </div>
+              <label for="cname">Name on Card</label>
+              <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+              <label for="ccnum">Credit card number</label>
+              <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+              
+              <label for="ccnum">Cash on delivery</label>
+              <input type="checkbox" id="ccnum" name="cashdelivery" placeholder="1111-2222-3333-4444" formControlName="cashdelivery" value="cashdelivery" >
+            
+            </div>
+  
+          </div>
+          <label>
+           
+          </label>
+         <button type="submit"class="btn btn-primary" (click)="checkout()"[disabled] = "grandTotal==0">checkout</button>
+        </form>
+      </div>
+    </div>
+  
+    <div class="col-25">
+      <div class="container">
+        <h4>Cart
+          <span class="price" style="color:black">
+            <i class="fa fa-shopping-cart"></i>
+            <b>{{products.length}}</b>
+          </span>
+        </h4>
+        <p *ngFor = "let product of products"><a  routerLink="/details/{{product.name}}">{{product.name}}</a> <span class="price">${{product.total}}</span></p>
+       
+        <hr>
+        <p>Total <span class="price" style="color:black"><b>${{grandTotal}}</b></span></p>
+      </div>
+    </div>
+  </div>
+  

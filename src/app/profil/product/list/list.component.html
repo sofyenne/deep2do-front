@@ -1,0 +1,38 @@
+<div  class="border border-info" style="width: 95%;margin-left: 10%;">
+    <div class="card-header" ><strong>List  </strong>  Products <strong style="margin-left: 70%;"><a routerLink="/profile/create">Add New</a></strong> </div>
+    <div class="card-header" ><input type="text"  placeholder="search sensor" class="form-control" style="width: 40%; margin-left: 30%;" [(ngModel)]="term"></div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                
+                <th>name</th>
+                <th>price</th>
+                <th>image</th>
+                <th>description</th>
+                <th>brand</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prod of productlist | filter:term">
+<ng-container *ngIf = "currentuser.id == prod.providerId">
+                
+                <td>{{prod.name}}</td>
+                <td>{{prod.price}}</td>
+                <td><img src="http://127.0.0.1:8000{{prod.image}}" style="width: 60px;height: 50px;" ></td>
+                <td>{{prod.description}}</td>
+                <td>{{prod.brand}}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example" >
+                        <button type="button" class="btn btn-primary" routerLink="/details/{{prod.id}}"><i class="bi bi-info"></i></button>
+                        <button type="button" class="btn btn-info" routerLink="/profile/update/{{prod.id}}"><i class="bi bi-pencil"></i></button>
+                        <button type="button"  class="btn btn-danger"(click)="delete(prod.id)"><i class="bi bi-trash"></i></button>
+                      </div>
+                </td>
+            </ng-container>
+            </tr>
+        </tbody>
+          </table>
+    </div>
+</div>

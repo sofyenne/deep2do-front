@@ -1,0 +1,112 @@
+<div class="row" style="margin-left: 5%;" >
+    <div class="col-md-10">
+      <div class="card" >
+        <div class="card-header" ><strong>Adress </strong>  {{user.name}} </div>
+        <div class="card-body">
+          <form class="form-horizontal" [formGroup]="formulaire">
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="code"><strong>city:</strong> </label>
+              <div class="col-md-9">
+                <input 
+                  type="text"
+                  id="id"
+                  name = "city"
+                  class="form-control" 
+                  placeholder="city" 
+                  formControlName="city" 
+                   
+                />
+               
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="name"><strong>country:</strong> </label>
+              <div class="col-md-9">
+                <input 
+                  type="text"
+                  id="name"
+                  name = "country"
+                  class="form-control" 
+                  placeholder="country" 
+                  formControlName="country" 
+                style="margin-top: 5%;"
+               
+                />
+               
+              </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="name"><strong>place:</strong> </label>
+                <div class="col-md-9">
+                  <input 
+                    type="text"
+                    id="place"
+                    name = "place"
+                    class="form-control" 
+                    placeholder="place" 
+                    formControlName="place" 
+                  style="margin-top: 5%;"
+                 
+                  />
+                 
+                </div>
+              </div>
+            <div class="card-footer" style="margin-top: 2%;">
+              <button
+                type="submit"
+                class="btn btn-sm btn-primary"
+          
+                (click)="add()"
+                [disabled]="user==undefined"
+              >
+                <i class="fa fa-dot-circle-o"></i> Confirmer
+              </button>
+      
+              <button
+                type="reset"
+                class="btn btn-sm btn-danger"
+               
+            style="margin-left: 5%;" >
+                <i class="fa fa-ban"></i> Ignorer
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="row" *ngIf="looding ==true">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <div class="lds-facebook"><div></div><div></div><div></div>
+        <span class="sr-only">Loading...</span>
+      </div>  </div>
+    <div class="col-4"></div>
+</div>
+<div class="animated fadeIn" *ngIf="source" style="margin-top: 5%;width: 80%; margin-left: 5%;">
+    <div class="row">
+        <div class="card-header col">
+            <i class="fa fa-users"></i><span>adress list</span>
+            <div class="form-outline" style="width: 50%; margin-left:  30%;">
+                <input #search type="search" id="form1" class="form-control" placeholder="Search by city or Id "
+                aria-label="Search" (input)="onSearch(search.value)" />
+              </div>
+           
+           
+        </div>
+    </div>
+    <div class="row card">
+       
+        <div class="card-body table-responsive ">
+            <ng2-smart-table 
+             [settings]='settings' 
+             [source]='source'
+             (deleteConfirm)='delete($event)'
+            >
+
+            </ng2-smart-table>
+        </div>
+    </div>
+    
+  </div>
+

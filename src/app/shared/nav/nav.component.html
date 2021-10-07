@@ -1,0 +1,55 @@
+
+<nav>	
+  <div class="col-2">
+<div class="logo">	<img class="d-inline-block align-top" src="../../../assets/img/deep.png" style="display: inline-block; height: 52px; width: 150px;padding-top: 0px; margin-top: -5px ; border-radius: 50%;" alt="">
+</div>
+ 
+</div>
+ <div class="row">
+   <div class="col">
+<ul>
+ <li><a class="" routerLink="" style="margin-left: 30px;"><i class="bi bi-house-door-fill">Home</i></a></li>
+  <li><a class="" routerLink="dhash/search"><i class="icon-search"></i>Search</a></li>
+  <li><a routerLink="/browse"><i class="fas fa-window-restore"></i>browse</a></li>
+  <li><a routerLink="/About"><i class="bi bi-info-circle-fill">About</i></a></li>
+ <div class="form-inline search" style="margin-left: 50px;width: 350px;margin-top: -6px;">
+    <input  class="form-control" type="search" placeholder="Search in Deep2do catalog" aria-label="Search"[(ngModel)]="searchValue">
+  </div>
+
+</ul>
+
+</div>
+<div class="col-1">
+  <button routerLink="cart" class="btn btn-outline-light" style="margin-top: 15px;">
+    <i style="font-size: 20px;" class="fas fa-cart-plus"></i>
+    <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
+</button>
+</div>
+
+<div class="col-1" style="right: auto;">
+
+  <div ngbDropdown class="d-inline-block " style="padding-top: 15px ;" >
+    <button class="btn btn-outline-light btn-rounded" ngbDropdownToggle><i class="bi bi-person-lines-fill">Account</i></button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+     
+      <button  ngbDropdownItem ><i class="bi bi-emoji-wink-fill">{{message}}</i></button>
+      <button routerLink="login" ngbDropdownItem *ngIf="!authenticated"><i class="bi bi-arrow-right-circle">Login</i></button>
+      <button  routerLink="register" ngbDropdownItem *ngIf="!authenticated"><i class="bi bi-bookmark-check">Sign Up</i></button>
+      <button (click)="logout()" ngbDropdownItem *ngIf="authenticated"><i class="bi bi-lock-fill">Logout</i></button>
+      <button routerLink="profile" ngbDropdownItem *ngIf="authenticated"><i class="icon-dashboard">My Dashboard</i></button>
+      
+    </div>
+    </div>
+  
+   
+    
+
+</div>
+
+</div> 
+</nav>
+<style>
+  .btn-rounded{
+
+  }
+</style>

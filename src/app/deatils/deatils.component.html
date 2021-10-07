@@ -1,0 +1,57 @@
+
+<div class="container" style="padding-top: 20px; margin-bottom: 600px;">
+<div class="col-lg-8 border p-3 main-section bg-white">
+<div class="row hedding m-0 pl-3 pt-0 pb-3">
+    <h5>Product Details</h5>
+<div class="row m-0">
+<div class="col-lg-4 left-side-product-box pb-3">
+    <div class="row"><img src="http://127.0.0.1:8000{{product.image}}" class="border p-3"></div>
+
+
+</div>
+<div class="col-lg-8">
+<div class="right-side-pro-detail border p-3 m-0">
+<div class="row">
+<div class="col-lg-12">
+<span>Name</span>
+<p class="m-0 p-0">{{product.name}}</p>
+</div>
+<div class="col-lg-12">
+<p class="m-0 p-0 price-pro">${{product.price}}</p>
+<hr class="p-0 m-0">
+</div>
+<div class="col-lg-12 pt-2">
+<h5>Product Details</h5>
+<span>{{product.description}}.</span><hr class="m-0 pt-2 mt-2">
+</div>
+<div class="col-lg-12">
+<p class="tag-section"><strong> Brand:{{product.brand}} </strong><a href=""></a><a href=""></a></p>
+</div>
+<div class="col-lg-12">
+<h6>Quantity :</h6>
+<input type="number" class="form-control text-center w-100" [(ngModel)]="qt" name="qt" value="1">
+
+</div>
+<div class="col-lg-12 mt-3">
+<div class="row">
+<div class="col-lg-4 ">
+<a (click)="addtocart(cartitem)" class="btn btn-danger w-100">Add To Cart</a>
+</div>
+<div class="col-lg-4 ">
+    <a  (click)="favorite(product.id)" class="btn btn-dark w-100"> <i class="ba ba-star"></i> favorite</a>
+    </div>
+<div class="col-lg-4 ">
+    <a routerLink="/browse" class="btn btn-success w-100">shop More</a>
+    </div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+</div>
+

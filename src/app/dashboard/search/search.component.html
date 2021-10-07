@@ -1,0 +1,57 @@
+
+        <div class="row">
+        <form action="">
+            <div class="row">
+        
+            <div class="col"><input class="form-control" style="width: 500px;" type="text" placeholder="Search a specific product by name "[(ngModel)]="searchValue" name="searchValue" ></div>
+           
+         <div class="col">  <button type="submit"  class="btn btn-outline-success" data-mdb-ripple-color="dark" (click) = "getprod()"><i class="bi bi-search">Search</i></button></div>
+      
+       
+        </div>
+    </form>
+    </div>
+
+    <div class="row" style="padding-top: 20px;" > 
+        <div class="row" *ngIf="looding ==true">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <div class="lds-facebook"><div></div><div></div><div></div>
+                <span class="sr-only">Loading...</span>
+              </div>  </div>
+            <div class="col-4"></div>
+        </div>
+       
+      
+        <div class="col-md-4" *ngFor = "let prod of listproduct" style="padding-right: 30px;"> 
+          <div class="wrapper" >
+              <div class="content"> <span class="price">${{prod.price}}</span>
+                  
+                  <div class="row" style="height: 50%;">
+                       <div class="p-image"> <img src="{{prod.image}}" width="150">
+                       </div>
+                      </div>
+                 <div class="row" >
+                  <h5>{{prod.price}}</h5> <span class="line"></span>
+                  <p>{{prod.name}}</p>
+                  <button (click)="detail(prod)">details </button>
+                 </div>
+              </div>
+          </div>
+          </div>
+     
+
+
+
+
+
+
+
+        
+
+                   
+
+
+    </div>
+    
+           

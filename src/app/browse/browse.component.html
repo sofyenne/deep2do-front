@@ -1,0 +1,73 @@
+<div >
+<div class="browse container" style="margin-top: 90px; margin-bottom: 50px;">
+    <div class="row">
+      <div class="filters col-md-2">
+        <div class="categories">
+          <p style=" color: black;
+          font-weight: bold;
+          display: inline-block;font-size: 100%;">Categories</p>
+          <p *ngIf="selectedCategory !== 'any'" class="remove" (click)="clearCategory()">remove</p>
+          <div class=""
+            *ngFor="let c of categories" (click)="selectCategory(c.name, c.id)">
+            {{c.name}}
+          </div>
+          
+        </div>
+
+
+      </div>
+
+
+      <div class="col-10" *ngIf="productlistbycat.length==0 ">
+          <p style="color: gray;">{{productlist.length}} : products found</p>
+          <hr>
+          <div class="row">
+          <div class="col-md-4" *ngFor = "let prod of productlist | filter:searchValue"> 
+            <div class="wrapper" >
+                <div class="content"> <span class="price">${{prod.price}}</span>
+                    
+                    <div class="row" style="height: 50%;">
+                         <div class="p-image"> <img src="http://127.0.0.1:8000{{prod.image}}" style="height: 100px;">
+                         </div>
+                        </div>
+                   <div class="row" >
+                    <h5>${{prod.price}}</h5> <span class="line"></span>
+                    <p>{{prod.name}}</p>
+                    <button routerLink = "/details/{{prod.id}}">details </button>
+                   </div>
+                </div>
+            </div>
+            </div>
+          </div>
+          </div>
+
+
+
+
+          
+
+          <div class="col-10" *ngIf="productlistbycat.length!=0 ">
+            <p style="color: gray;">{{productlistbycat.length}} : products found</p>
+            <hr>
+            <div class="new-card col-lg-3 col-md-6 col-12" *ngFor="let prod of productlistbycat" >
+            
+                <div class="wrapper" >
+                    <div class="content"> <span class="price">${{prod.price}}</span>
+                        
+                        <div class="row" style="height: 50%;">
+                             <div class="p-image"> <img src="http://127.0.0.1:8000{{prod.image}}" style="height: 100px;">
+                             </div>
+                            </div>
+                       <div class="row" >
+                        <h5>{{prod.price}}</h5> <span class="line"></span>
+                        <p>{{prod.name}}</p>
+                        <button routerLink = "/details/{{prod.id}}">details </button>
+                       </div>
+                    </div>
+                </div>
+                </div>
+              </div>
+           
+
+    </div>       
+  </div>

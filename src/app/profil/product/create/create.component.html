@@ -1,0 +1,46 @@
+<div  class="border border-info" style="width: 70%;margin-left: 20%;">
+    <div class="card-header" ><strong>Add new </strong>  Product </div>
+    <div class="card-body">
+    <form class="form" [formGroup]="form">
+      
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name"
+              placeholder="name Product" formControlName="name"
+              [class.is-invalid]="form.controls.name.invalid && (form.controls.name.dirty || form.controls.name.touched)">
+              
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <input type="text" class="form-control" id="description" placeholder="description" formControlName="description"
+              [class.is-invalid]="form.controls.description.invalid && (form.controls.description.dirty || form.controls.description.touched)">
+            </div>
+            <div class="mb-3 ">
+            <label class="form-label" for="iamge">iamge</label>
+              <input type="file" (change)="onselectFile($event)" class="form-control" id="iamge"placeholder="iamge" formControlName="iamge">
+              
+            </div>
+            <div class="mb-3 ">
+                <label class="form-label" for="price">price</label>
+                  <input type="number" class="form-control" id="price"placeholder="price" formControlName="price">
+                 
+                </div>
+            <div class="mb-3 ">
+            <label class="form-label" for="Category">Category</label>
+             <select  class="form-control" id ="Category " placeholder="choise Category"formControlName="categoryId" >
+           <option value="">choise a Category</option>
+              <option  *ngFor = "let cat of categoryList"  [ngValue]="cat.id"    >{{cat.name}}</option>
+            
+             </select>
+             </div>
+             <div class="mb-3 ">
+                <label class="form-label" for="brand">barand</label>
+                  <input type="text" class="form-control" id="brand"placeholder="price" formControlName="brand">
+                </div>
+            
+            <button type="submit" class="btn btn-primary"   (click)="saveprod()">Submit</button> 
+            <button style="margin-left: 5%;" type="submit" class="btn btn-danger" routerLink="/profile/list">ignor</button>
+       
+      </form>
+    </div>
+</div>

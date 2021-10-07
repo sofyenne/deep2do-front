@@ -1,0 +1,58 @@
+
+<div class="container">
+    <div class="app-body">
+        <main class="main d-flex align-items-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 mx-auto">
+                <div class="card mx-4">
+                  <div class="card-body p-4">
+                    <form [formGroup]="registerForm" (ngSubmit)="submit()" >
+                      <h1>Register</h1>
+                      <p class="text-muted">Create your account</p>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-user fa-2x"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" autocomplete="username" required formControlName="name" >
+                      </div>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">@</span>
+                        </div>
+                        <input type="email" class="form-control" placeholder="Email" autocomplete="email" required formControlName="email" >
+                      </div>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-lock fa-2x"></i></span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="Password" autocomplete="new-password" required formControlName="password" >
+                      </div>
+                      <p>
+                        To complete the creation of your supplier account, you must contact the administrator by email to sign the contract</p>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required formControlName="rols">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            i agree and accept the terms and conditions
+                        </label>
+                      </div>
+                      
+                      <button type="submit" class="btn btn-block btn-success"[disabled]="registerForm.invalid">Create Account</button>
+                      <a style="margin-left: 20%;" routerLink= "/login">I have a count </a>
+                    </form>
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <style>
+      .container{
+        padding-top: 20px;
+        padding-bottom: 30px;
+      }
+    </style>
+    

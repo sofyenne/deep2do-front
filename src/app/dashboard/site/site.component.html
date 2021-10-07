@@ -1,0 +1,25 @@
+
+<div class="row" style="padding-top: 20px;" >
+    <div class="row" >
+        <div class="col-6"><h5>Last searched </h5></div>
+        <div class="col-6" ><h6 style="padding-left: 250px;">Number Of Product : {{count}}</h6></div>
+        <hr>
+    </div>
+    <div class="col-md-4" *ngFor = "let prod of listlastvisited" style="padding-right: 30px;"> 
+        <div class="wrapper" >
+            <div class="content"> <span class="price">${{prod.price}}</span>
+                
+                <div class="row" style="height: 50%;">
+                     <div class="p-image"> <img src="{{prod.image}}" width="150">
+                     </div>
+                    </div>
+               <div class="row" >
+                <h5>{{prod.price}}</h5> <span class="line"></span>
+                <p>{{prod.name}}</p>
+                <button (click)="detail(prod)">details </button>
+               </div>
+            </div>
+        </div>
+        </div>
+</div>
+

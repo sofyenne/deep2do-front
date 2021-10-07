@@ -1,0 +1,34 @@
+<div class="row" *ngIf="looding ==true">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <div class="lds-facebook"><div></div><div></div><div></div>
+        <span class="sr-only">Loading...</span>
+      </div>  </div>
+    <div class="col-4"></div>
+</div>
+<div class="animated fadeIn" *ngIf="source">
+    <div class="row">
+        <div class="card-header col">
+            <i class="fa fa-users"></i><span>list Users</span>
+            <div class="form-outline" style="width: 50%; margin-left:  30%;">
+                <input #search type="search" id="form1" class="form-control" placeholder="find user"
+                aria-label="Search" (input)="onSearch(search.value)" />
+              </div>
+           
+           
+        </div>
+    </div>
+    <div class="row card">
+       
+        <div class="card-body table-responsive ">
+            <ng2-smart-table 
+             [settings]='settings' 
+             [source]='source'
+             (deleteConfirm)='deleteCorps($event)'
+             (editConfirm)='update($event)'>
+
+            </ng2-smart-table>
+        </div>
+    </div>
+    
+  </div>

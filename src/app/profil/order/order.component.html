@@ -1,0 +1,70 @@
+<div class="contaier">
+    <h5 > Ordres : {{user.name}}</h5>
+    <hr>
+    <div class="order" style="margin-left: 5%;">
+      <input type="text" class="form-control" style="width: 30%;margin-left: 40%;" placeholder="search order"[(ngModel)]="term">
+      <table class="table"  *ngIf= "orderlist.length!=0 || orderForProv.length!=0" >
+        <thead >
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Adress</th>
+            <th scope="col">Date</th>
+            <th scope="col">State</th>
+            <th scope="col">Total</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody *ngIf= "user.role=='provider'">
+          <tr *ngFor = "let item of orderForProv| filter:term">
+            <td >{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <ng-container *ngFor = "let add of adresslist" >
+            <td *ngIf="item.delivery == add.id">{{add.place}}</td>
+            </ng-container>
+            <td>{{item.date}}</td>
+            <td>{{item.etat}}</td>
+            <td>{{item.total}}</td>
+            <td><button type="button" routerLink = "/profile/facture/{{item.id}}" class="btn btn-primary">Invoice</button>
+              <button  type="button" class="btn btn-danger" (click)=cancelOrder(item.id)>Cancel</button>
+            </td>
+          </tr>
+        </tbody>
+        <tbody *ngIf= "user.role=='user'">
+          <tr *ngFor = "let item of orderlist| filter:term">
+            <ng-container *ngIf="user.id==item.user" >
+            <td >{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <ng-container *ngFor = "let add of adresslist" >
+            <td *ngIf="item.delivery == add.id">{{add.place}}</td>
+            </ng-container>
+            <td>{{item.date}}</td>
+            <td>{{item.etat}}</td>
+            <td>{{item.total}}</td>
+            <td><button type="button" routerLink = "/profile/facture/{{item.id}}" class="btn btn-primary">Invoice</button>
+              <td *ngIf="item.etat=='running'" ><button type="button"  class="btn btn-warning" (click)=cancelOrder(item.id)>Cancel</button>
+              
+            </td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    
+    </div>
+    <div class="notfound" *ngIf= "orderlist.length==0 && orderForProv.length==0" style="margin-top: 50px; margin-bottom: 50px;" >
+        <div class="d-flex justify-content-center align-items-center" id="main">
+            
+            <div class="inline-block align-middle">
+                <h2 class="font-weight-normal lead" id="desc">any order ... your space is empty.</h2>
+                <button routerLink="/browse" class="btn btn-primary" style="margin-top: 30px;">Shop Now</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+

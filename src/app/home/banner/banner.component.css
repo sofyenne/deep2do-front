@@ -1,0 +1,12 @@
+
+.banner{
+  position: relative;
+  top: 100px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.title {
+  font-weight: bold;
+  color: black;
+  font-size: 18px;
+}

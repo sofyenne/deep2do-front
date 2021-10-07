@@ -1,0 +1,57 @@
+<!-- Grid row -->
+<div class="row" style="padding-top: 5%;padding-bottom: 20%;">
+
+  <!-- Grid column -->
+  <div class="col-md-3 col-lg-2">
+
+    <ul class="nav md-pills pills-info" style="padding-left: 12%;">
+      <li class="nav-item">
+        <button type="button" class="btn btn-outline-warning btn-rounded z-depth-1az"> <a class="nav-link active" data-toggle="tab"   routerLink="/profile/mee"><i class="far fa-gem pr-xl-2 pr-md-0 pr-2"></i>Dashboard </a></button>
+      </li>
+      <li class="nav-item"  *ngIf = "user.role!='admin'">
+        <a class="nav-link" data-toggle="tab" href="#panel22" role="tab" routerLink="order"><i class="fas fa-credit-card pr-xl-2 pr-md-0 pr-2"></i>Orders</a>
+      </li>
+      <li class="nav-item" *ngIf = "user.role=='admin'">
+        <a class="nav-link" data-toggle="tab" routerLink="user" role="tab"><i class="fas fa-user pr-xl-2 pr-md-0 pr-2"></i>Users</a>
+      </li>
+      <li class="nav-item" *ngIf = "user.role=='admin'">
+        <a class="nav-link" data-toggle="tab" routerLink="category" role="tab"><i class="bi bi-archive-fill"></i>Category</a>
+      </li>
+      <li class="nav-item" *ngIf = "user.role=='provider'">
+        <a class="nav-link" data-toggle="tab" routerLink="list" role="tab"><i class="bi bi-archive-fill"></i>Products</a>
+      </li>
+      <li class="nav-item" *ngIf = "user.role =='user'">
+        <a class="nav-link" data-toggle="tab" routerLink="mee" role="tab"><i class="bi bi-archive-fill"></i>address</a>
+      </li>
+      <li class="nav-item" *ngIf = "user.role =='user'">
+        <a class="nav-link" data-toggle="tab" routerLink="favorite" role="tab"><i class="fab fa-gratipay"></i>Favorite</a>
+      </li>
+    </ul>
+
+
+  </div>
+  <!-- Grid column -->
+
+  <!-- Grid column -->
+  <div class="col-md-9 col-lg-8 ml-xl-0 ml-4">
+
+    <!-- Tab panels -->
+    <div class="tab-content">
+
+      <!--Panel 1-->
+      <div class="tab-pane fade in show active" id="panel21" role="tabpanel">
+        <br>
+
+        <router-outlet></router-outlet>
+      </div>
+      <!--/.Panel 1-->
+
+  
+
+    </div>
+
+  </div>
+  <!-- Grid column -->
+
+</div>
+<!-- Grid row -->

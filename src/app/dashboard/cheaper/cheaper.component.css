@@ -1,0 +1,118 @@
+
+
+.wrapper {
+   
+    padding-right: 30px;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:white;
+    
+
+}
+
+.wrapper .content {
+    width: 350px;
+    height: 310px;
+    background-color : white;
+    padding: 40px 20px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px
+}
+
+.wrapper .content .price {
+    width: 60px;
+    height: 60px;
+    background-color:red;
+    display: flex;
+    border-radius: 50%;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    opacity: 0;
+    transition: all 0.9s
+}
+
+.wrapper .content:hover .price {
+    opacity: 1
+}
+
+.wrapper .content .p-image {
+    text-align: center
+}
+
+.wrapper .content .p-image img {
+    transition: all 0.5s
+}
+
+.wrapper .content:hover .p-image img {
+    transform: rotate(30deg)
+}
+
+.wrapper .content .line {
+    width: 30px;
+    height: 5px;
+    background-color: #000;
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px
+}
+
+.wrapper .content h5 {
+    margin-top: 10px;
+    font-size: 15px;
+    color: red;
+    
+}
+
+.wrapper .content button {
+    height: 45px;
+    width: 100px;
+    border: none;
+    background-color: #000;
+    border-radius: 5px;
+    color: #fff;
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    font-size: 15px
+}
+
+.wrapper .content p {
+    font-size: 15px
+}
+
+.wrapper .content button {
+    opacity: 0;
+    transition: all 0.5s
+}
+
+.wrapper .content:hover button {
+    opacity: 1;
+    transition: all 0.5s
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

@@ -1,0 +1,51 @@
+<div  class="border border-info" style="width: 70%;margin-left: 20%;">
+    <div class="card-header" ><strong>update </strong>  Product </div>
+    <div class="card-body">
+    <form class="form" id="myform" name ="myform">
+      
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name"
+              placeholder="name Product" 
+              [(ngModel)]="product.name"
+              name = "name"
+             >
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <input type="text" class="form-control" id="description" placeholder="description" 
+              [(ngModel)]="product.description" name = "description">
+            </div>
+            <div class="mb-3 ">
+            <label class="form-label" for="iamge">iamge</label>
+              <input type="file" (change)="onselectFile($event)" class="form-control" id="iamge"placeholder="iamge" 
+              [(ngModel)]="product.iamge" name = "iamge">
+              
+            </div>
+            <div class="mb-3 ">
+                <label class="form-label" for="price">price</label>
+                  <input type="number" class="form-control" id="price"placeholder="price" 
+                  [(ngModel)]="product.price" name = "price">
+                 
+                </div>
+            <div class="mb-3 ">
+            <label class="form-label" for="Category">Category</label>
+             <select  class="form-control" id ="Category " placeholder="choise Category"[(ngModel)]="product.categoryId" name = "categoryId">
+           <option value="">choise a Category</option>
+              <option  *ngFor = "let cat of categoryList"  [ngValue]="cat.id"    >{{cat.name}}</option>
+            
+             </select>
+             </div>
+             <div class="mb-3 ">
+                <label class="form-label" for="brand">brand</label>
+                  <input type="text" class="form-control" id="brand"placeholder="price" [(ngModel)]="product.brand" name = "brand">
+                </div>
+            
+              
+           
+            <button type="submit" class="btn btn-primary"   (click)="update()">Submit</button> 
+            <button style="margin-left: 5%;" type="submit" class="btn btn-danger">ignor</button>
+       
+      </form>
+    </div>
+</div>
